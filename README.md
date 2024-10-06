@@ -7,6 +7,7 @@
 - `packages/js-exports`: 使用 `exports` 语法导出的纯 JavaScript 模块
 - `packages/js-global-exports`: 使用 `module.exports` 语法导出的纯 JavaScript 模块
 - `packages/ts-global-exports`: 使用 `export =` 语法导出的 TypeScript 模块
+- `packages/ts-default-export`: 使用 `export default` 语法导出的 TypeScript 模块
 - `packages/case-es2018`: TypeScript 项目,测试导入上述 JavaScript 模块 (不使用 esModuleInterop)
 - `packages/case-es2018-interop`: TypeScript 项目,测试导入上述 JavaScript 模块 (使用 esModuleInterop)
 - `packages/case-node16`: TypeScript 项目,使用 Node16 模块系统测试导入上述 JavaScript 模块
@@ -20,6 +21,7 @@
    - `exports.xxx`
    - `module.exports`
    - `export =`
+   - `export default`
 
 2. TypeScript 中的模块导入:
    - 标准 ES6 导入

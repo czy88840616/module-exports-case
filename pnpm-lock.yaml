@@ -26,6 +26,9 @@ importers:
       '@my-workspace/js-global-exports':
         specifier: workspace:*
         version: link:../js-global-exports
+      '@my-workspace/ts-default-export':
+        specifier: workspace:*
+        version: link:../ts-default-export
       '@my-workspace/ts-global-exports':
         specifier: workspace:*
         version: link:../ts-global-exports
@@ -67,6 +70,9 @@ importers:
       '@my-workspace/js-global-exports':
         specifier: workspace:*
         version: link:../js-global-exports
+      '@my-workspace/ts-global-exports':
+        specifier: workspace:*
+        version: link:../ts-global-exports
     devDependencies:
       '@types/jest':
         specifier: ^29.5.0
@@ -86,6 +92,9 @@ importers:
       '@my-workspace/js-global-exports':
         specifier: workspace:*
         version: link:../js-global-exports
+      '@my-workspace/ts-global-exports':
+        specifier: workspace:*
+        version: link:../ts-global-exports
     devDependencies:
       '@types/jest':
         specifier: ^29.5.0
@@ -105,6 +114,9 @@ importers:
       '@my-workspace/js-global-exports':
         specifier: workspace:*
         version: link:../js-global-exports
+      '@my-workspace/ts-global-exports':
+        specifier: workspace:*
+        version: link:../ts-global-exports
     devDependencies:
       '@types/jest':
         specifier: ^29.5.0
@@ -141,6 +153,12 @@ importers:
   packages/js-exports: {}
 
   packages/js-global-exports: {}
+
+  packages/ts-default-export:
+    devDependencies:
+      typescript:
+        specifier: ^4.5.0
+        version: 4.9.5
 
   packages/ts-global-exports:
     devDependencies:

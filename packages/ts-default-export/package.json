@@ -1,0 +1,14 @@
+{
+  "name": "@my-workspace/ts-default-export",
+  "version": "1.0.0",
+  "description": "使用 export default 语法导出的 TypeScript 模块",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.0"
+  }
+}
