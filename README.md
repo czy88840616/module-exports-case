@@ -34,6 +34,21 @@
    - `module`
    - `esModuleInterop`
 
+## 导出和导入方式总结
+
+| 导出方式 | 导出示例 | 导入方式 (无 esModuleInterop) | 导入方式 (有 esModuleInterop) |
+|---------|---------|----------------------------|----------------------------|
+| CommonJS (`exports.xxx`) | `exports.myFunction = () => {...}` | `import * as myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` |
+| CommonJS (`module.exports`) | `module.exports = { myFunction: () => {...} }` | `import * as myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` |
+| TypeScript `export =` | `export = { myFunction: () => {...} }` | `import * as myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` |
+| ES6 `export default` | `export default { myFunction: () => {...} }` | `import myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` |
+| ES6 命名导出 | `export const myFunction = () => {...}` | `import { myFunction } from 'myModule';` | `import { myFunction } from 'myModule';` |
+
+注意:
+- 使用 `esModuleInterop` 可以使 CommonJS 和 `export =` 模块的导入方式与 ES6 模块一致。
+- Node16 和 NodeNext 模块系统在导入方式上与 ES6 模块类似,但可能在解析规则上有所不同。
+- 实际项目中,建议统一使用一种模块系统和导入/导出语法,以避免混淆和潜在的兼容性问题。
+
 ## 如何使用
 
 1. 安装依赖:
