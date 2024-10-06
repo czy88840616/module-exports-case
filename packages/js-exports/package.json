@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "使用 exports 导出的纯 JS 项目",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "types": "index.d.ts"
+  }
 }

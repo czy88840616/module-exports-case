@@ -1,0 +1,19 @@
+{
+  "name": "@my-workspace/case-node-next-interop",
+  "version": "1.0.0",
+  "description": "Node Next 模块系统测试用例,包括对 js-exports 和 js-global-exports 的测试,开启 esModuleInterop",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@my-workspace/js-exports": "workspace:*",
+    "@my-workspace/js-global-exports": "workspace:*"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "@types/jest": "^29.5.0"
+  }
+}

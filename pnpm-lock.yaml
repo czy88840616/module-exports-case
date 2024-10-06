@@ -56,7 +56,64 @@ importers:
         specifier: ^29.1.0
         version: 29.2.5(@babel/core@7.25.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.7))(jest@29.7.0(@types/node@22.7.4))(typescript@5.6.2)
 
+  packages/case-node-next:
+    dependencies:
+      '@my-workspace/js-exports':
+        specifier: workspace:*
+        version: link:../js-exports
+      '@my-workspace/js-global-exports':
+        specifier: workspace:*
+        version: link:../js-global-exports
+    devDependencies:
+      '@types/jest':
+        specifier: ^29.5.0
+        version: 29.5.13
+      jest:
+        specifier: ^29.5.0
+        version: 29.7.0(@types/node@22.7.4)
+      ts-jest:
+        specifier: ^29.1.0
+        version: 29.2.5(@babel/core@7.25.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.7))(jest@29.7.0(@types/node@22.7.4))(typescript@5.6.2)
+
+  packages/case-node-next-interop:
+    dependencies:
+      '@my-workspace/js-exports':
+        specifier: workspace:*
+        version: link:../js-exports
+      '@my-workspace/js-global-exports':
+        specifier: workspace:*
+        version: link:../js-global-exports
+    devDependencies:
+      '@types/jest':
+        specifier: ^29.5.0
+        version: 29.5.13
+      jest:
+        specifier: ^29.5.0
+        version: 29.7.0(@types/node@22.7.4)
+      ts-jest:
+        specifier: ^29.1.0
+        version: 29.2.5(@babel/core@7.25.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.7))(jest@29.7.0(@types/node@22.7.4))(typescript@5.6.2)
+
   packages/case-node16:
+    dependencies:
+      '@my-workspace/js-exports':
+        specifier: workspace:*
+        version: link:../js-exports
+      '@my-workspace/js-global-exports':
+        specifier: workspace:*
+        version: link:../js-global-exports
+    devDependencies:
+      '@types/jest':
+        specifier: ^29.5.0
+        version: 29.5.13
+      jest:
+        specifier: ^29.5.0
+        version: 29.7.0(@types/node@22.7.4)
+      ts-jest:
+        specifier: ^29.1.0
+        version: 29.2.5(@babel/core@7.25.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.7))(jest@29.7.0(@types/node@22.7.4))(typescript@5.6.2)
+
+  packages/case-node16-interop:
     dependencies:
       '@my-workspace/js-exports':
         specifier: workspace:*
