@@ -12,10 +12,11 @@
 - `packages/case-es2018-interop`: TypeScript 项目,测试导入上述 JavaScript 模块 (使用 esModuleInterop)
 - `packages/case-node16`: TypeScript 项目,使用 Node16 模块系统测试导入上述 JavaScript 模块
 - `packages/case-node16-interop`: TypeScript 项目,使用 Node16 模块系统测试导入上述 JavaScript 模块 (使用 esModuleInterop)
-- `packages/case-node-next`: TypeScript 项目,使用 Node Next 模块系统测试导入上述 JavaScript 模���
+- `packages/case-node-next`: TypeScript 项目,使用 Node Next 模块系统测试导入上述 JavaScript 模
 - `packages/case-node-next-interop`: TypeScript 项目,使用 Node Next 模块系统测试导入上述 JavaScript 模块 (使用 esModuleInterop)
 - `packages/case-node-next-synthetic`: TypeScript 项目,使用 Node Next 模块系统测试导入上述 JavaScript 模块 (使用 allowSyntheticDefaultImports)
 - `packages-npm/case-supertest-es2018`: TypeScript 项目,测试导入 supertest 包 (export = 导出),使用 ES2018 模块系统
+- `packages-npm/case-supertest-node-next`: TypeScript 项目,测试导入 supertest 包 (export = 导出),使用 Node Next 模块系统,不使用 esModuleInterop
 
 ## 主要测试内容
 
@@ -67,6 +68,13 @@
 import
 ```
 
+### Supertest (export =) 导入示例 (Node Next)
+
+使用 Node Next 模块系统导入 supertest (不使用 esModuleInterop):
+
+```typescript
+```
+
 ## 如何使用
 
 1. 安装依赖:
@@ -91,6 +99,8 @@ import
 - 这个项目主要用于学习和测试目的,展示了不同模块系统之间的交互。
 - 在实际项目中,建议尽可能使用一致的模块系统和导入/导出语法。
 - 不同的 TypeScript 版本可能会影响模块解析行为,请确保使用最新版本的 TypeScript。
+- 如果 `module` 设置为 `node16` 或 `nodenext`，则 `esModuleInterop` 默认为 `true`; 否则默认为 `false`。
+- 使用 `allowSyntheticDefaultImports` 时要特别小心,因为它可能会在类型检查和运行时行为之间造成不一致。
 
 ## 贡献
 
