@@ -1,5 +1,6 @@
 import * as jsExports from '@my-workspace/js-exports';
 import * as jsGlobalExports from '@my-workspace/js-global-exports';
+import * as tsGlobalExports from '@my-workspace/ts-global-exports';
 
 describe('case-es2018', () => {
   describe('js-exports', () => {
@@ -19,6 +20,16 @@ describe('case-es2018', () => {
 
     it('should import and use moduleExportsVariable correctly', () => {
       expect(jsGlobalExports.moduleExportsVariable).toBe('This is a module.exports variable');
+    });
+  });
+
+  describe('ts-global-exports', () => {
+    it('should import and use tsGlobalExportsFunction correctly', () => {
+      expect(tsGlobalExports.tsGlobalExportsFunction()).toBe('I am from ts-global-exports');
+    });
+
+    it('should import and use tsGlobalExportsVariable correctly', () => {
+      expect(tsGlobalExports.tsGlobalExportsVariable).toBe('This is a ts-global-exports variable');
     });
   });
 });

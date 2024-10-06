@@ -26,6 +26,9 @@ importers:
       '@my-workspace/js-global-exports':
         specifier: workspace:*
         version: link:../js-global-exports
+      '@my-workspace/ts-global-exports':
+        specifier: workspace:*
+        version: link:../ts-global-exports
     devDependencies:
       '@types/jest':
         specifier: ^29.5.0
@@ -121,6 +124,9 @@ importers:
       '@my-workspace/js-global-exports':
         specifier: workspace:*
         version: link:../js-global-exports
+      '@my-workspace/ts-global-exports':
+        specifier: workspace:*
+        version: link:../ts-global-exports
     devDependencies:
       '@types/jest':
         specifier: ^29.5.0
@@ -135,6 +141,12 @@ importers:
   packages/js-exports: {}
 
   packages/js-global-exports: {}
+
+  packages/ts-global-exports:
+    devDependencies:
+      typescript:
+        specifier: ^4.5.0
+        version: 4.9.5
 
 packages:
 
@@ -1264,6 +1276,11 @@ packages:
   type-fest@0.21.3:
     resolution: {integrity: sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==}
     engines: {node: '>=10'}
+
+  typescript@4.9.5:
+    resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
 
   typescript@5.6.2:
     resolution: {integrity: sha512-NW8ByodCSNCwZeghjN3o+JX5OFH0Ojg6sadjEKY4huZ52TqbJTJnDo5+Tw98lSy63NZvi4n+ez5m2u5d4PkZyw==}
@@ -2715,6 +2732,8 @@ snapshots:
   type-detect@4.0.8: {}
 
   type-fest@0.21.3: {}
+
+  typescript@4.9.5: {}
 
   typescript@5.6.2: {}
 

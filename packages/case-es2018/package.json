@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "@my-workspace/js-exports": "workspace:*",
-    "@my-workspace/js-global-exports": "workspace:*"
+    "@my-workspace/js-global-exports": "workspace:*",
+    "@my-workspace/ts-global-exports": "workspace:*"
   },
   "devDependencies": {
     "jest": "^29.5.0",
