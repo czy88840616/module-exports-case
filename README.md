@@ -14,7 +14,6 @@
 - `packages/case-node16-interop`: TypeScript 项目,使用 Node16 模块系统测试导入上述 JavaScript 模块 (使用 esModuleInterop)
 - `packages/case-node-next`: TypeScript 项目,使用 Node Next 模块系统测试导入上述 JavaScript 模
 - `packages/case-node-next-interop`: TypeScript 项目,使用 Node Next 模块系统测试导入上述 JavaScript 模块 (使用 esModuleInterop)
-- `packages/case-node-next-synthetic`: TypeScript 项目,使用 Node Next 模块系统测试导入上述 JavaScript 模块 (使用 allowSyntheticDefaultImports)
 - `packages-npm/case-supertest-es2018`: TypeScript 项目,测试导入 supertest 包 (export = 导出),使用 ES2018 模块系统
 - `packages-npm/case-supertest-node-next`: TypeScript 项目,测试导入 supertest 包 (export = 导出),使用 Node Next 模块系统,不使用 esModuleInterop
 
@@ -39,41 +38,21 @@
 
 ## 导出和导入方式总结
 
-| 导出方式 | 导出示例 | 导入方式 (无 esModuleInterop) | 导入方式 (有 esModuleInterop) | 导入方式 (有 allowSyntheticDefaultImports) |
-|---------|---------|----------------------------|----------------------------|------------------------------------------|
-| CommonJS (`exports.xxx`) | `exports.myFunction = () => {...}` | `import * as myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` (只在类型检查时有效) |
-| CommonJS (`module.exports`) | `module.exports = { myFunction: () => {...} }` | `import * as myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` (只在类型检查时有效) |
-| TypeScript `export =` | `export = { myFunction: () => {...} }` | `import * as myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` (只在类型检查时有效) |
-| ES6 `export default` | `export default { myFunction: () => {...} }` | `import myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` |
-| ES6 命名导出 | `export const myFunction = () => {...}` | `import { myFunction } from 'myModule';` | `import { myFunction } from 'myModule';` | `import { myFunction } from 'myModule';` |
+| 导出方式 | 导出示例 | 导入方式 (无 esModuleInterop) | 导入方式 (有 esModuleInterop) |
+|---------|---------|----------------------------|----------------------------|
+| CommonJS (`exports.xxx`) | `exports.myFunction = () => {...}` | `import * as myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` |
+| CommonJS (`module.exports`) | `module.exports = { myFunction: () => {...} }` | `import * as myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` |
+| TypeScript `export =` | `export = { myFunction: () => {...} }` | `import * as myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` |
+| ES6 `export default` | `export default { myFunction: () => {...} }` | `import myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` |
+| ES6 命名导出 | `export const myFunction = () => {...}` | `import { myFunction } from 'myModule';` | `import { myFunction } from 'myModule';` |
 
 注意:
 - 使用 `esModuleInterop` 可以使 CommonJS 和 `export =` 模块的导入方式与 ES6 模块一致。
-- `allowSyntheticDefaultImports` 只影响类型检查,不改变生成的 JavaScript 代码。在运行时,使用此选项导入 CommonJS 模块可能会导致错误。
+- 如果 `module` 设置为 `node16` 或 `nodenext`，则 `esModuleInterop` 默认为 `true`。在我们的 case-node16 和 case-node-next 测试中，我们显式地将其设置为 `false` 以测试没有此功能时的行为。
+- 当 `esModuleInterop` 开启时，`allowSyntheticDefaultImports` 也会自动启用。这意味着在启用 `esModuleInterop` 的情况下，你可以使用默认导入语法导入没有默认导出的模块，而不会出现类型错误。
 - Node16 和 NodeNext 模块系统在导入方式上与 ES6 模块类似,但可能在解析规则上有所不同。
 - 实际项目中,建议统一使用一种模块系统和导入/导出语法,以避免混淆和潜在的兼容性问题。
-- 使用 `allowSyntheticDefaultImports` 时要特别小心,因为它可能会在类型检查和运行时行为之间造成不一致。
 
-## 导出和导入方式总结 (npm 包 `export =`)
-
-| npm 包 `export =` | `export = function request() {...}` | `import * as request from 'supertest'; request(app)` | `import request from 'supertest'; request(app)` | `import request from 'supertest'; request(app)` (只在类型检查时有效) |
-
-## 实际例子
-
-### Supertest (export =) 导入示例
-
-使用 ES2018 模块系统导入 supertest:
-
-```typescript
-import
-```
-
-### Supertest (export =) 导入示例 (Node Next)
-
-使用 Node Next 模块系统导入 supertest (不使用 esModuleInterop):
-
-```typescript
-```
 
 ## 如何使用
 
@@ -99,8 +78,6 @@ import
 - 这个项目主要用于学习和测试目的,展示了不同模块系统之间的交互。
 - 在实际项目中,建议尽可能使用一致的模块系统和导入/导出语法。
 - 不同的 TypeScript 版本可能会影响模块解析行为,请确保使用最新版本的 TypeScript。
-- 如果 `module` 设置为 `node16` 或 `nodenext`，则 `esModuleInterop` 默认为 `true`。在我们的 case-node16 和 case-node-next 测试中，我们显式地将其设置为 `false` 以测试没有此功能时的行为。
-- 使用 `allowSyntheticDefaultImports` 时要特别小心,因为它可能会在类型检查和运行时行为之间造成不一致。
 
 ## 贡献
 
