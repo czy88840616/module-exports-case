@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "packages-npm/*"
   ],
   "scripts": {
     "build": "pnpm -r run build",
-    "test": "pnpm -r --filter=@my-workspace/case-* run test"
+    "test": "pnpm -r --if-present run test"
   },
   "devDependencies": {
     "jest": "^29.5.0",
