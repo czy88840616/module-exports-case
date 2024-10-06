@@ -1,9 +1,14 @@
+import { checkImports } from './index';
 import jsExports from '@my-workspace/js-exports';
 import jsGlobalExports from '@my-workspace/js-global-exports';
 import tsGlobalExports from '@my-workspace/ts-global-exports';
 import tsDefaultExport from '@my-workspace/ts-default-export';
 
 describe('case-node-next-interop', () => {
+  it('should import and check imports without errors', () => {
+    expect(checkImports).not.toThrow();
+  });
+
   describe('js-exports', () => {
     it('should import and use exportsFunction correctly', () => {
       expect(jsExports.exportsFunction()).toBe('I am from exports');

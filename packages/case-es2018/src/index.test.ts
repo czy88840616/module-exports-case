@@ -1,9 +1,14 @@
+import { checkImports } from './index';
 import * as jsExports from '@my-workspace/js-exports';
 import * as jsGlobalExports from '@my-workspace/js-global-exports';
 import * as tsGlobalExports from '@my-workspace/ts-global-exports';
 import tsDefaultExport from '@my-workspace/ts-default-export';
 
 describe('case-es2018', () => {
+  it('should import and check imports without errors', () => {
+    expect(checkImports).not.toThrow();
+  });
+
   describe('js-exports', () => {
     it('should import and use exportsFunction correctly', () => {
       expect(jsExports.exportsFunction()).toBe('I am from exports');
