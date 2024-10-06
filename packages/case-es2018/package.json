@@ -2,7 +2,9 @@
   "name": "@my-workspace/case-es2018",
   "version": "1.0.0",
   "description": "ES2018 测试用例,包括对 js-exports 和 js-global-exports 的测试",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "tsc",
     "test": "jest"
   },
   "dependencies": {

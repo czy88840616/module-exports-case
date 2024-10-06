@@ -6,6 +6,7 @@
     "packages/*"
   ],
   "scripts": {
+    "build": "pnpm -r run build",
     "test": "pnpm -r --filter=@my-workspace/case-* run test"
   },
   "devDependencies": {

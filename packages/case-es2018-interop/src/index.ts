@@ -1,5 +1,5 @@
-import * as jsExports from '@my-workspace/js-exports';
-import * as jsGlobalExports from '@my-workspace/js-global-exports';
+import jsExports from '@my-workspace/js-exports';
+import jsGlobalExports from '@my-workspace/js-global-exports';
 
 console.log('Imported from js-exports:', jsExports);
 console.log('Imported from js-global-exports:', jsGlobalExports);
