@@ -51,6 +51,12 @@ importers:
       '@my-workspace/js-global-exports':
         specifier: workspace:*
         version: link:../js-global-exports
+      '@my-workspace/ts-default-export':
+        specifier: workspace:*
+        version: link:../ts-default-export
+      '@my-workspace/ts-global-exports':
+        specifier: workspace:*
+        version: link:../ts-global-exports
     devDependencies:
       '@types/jest':
         specifier: ^29.5.0
@@ -70,6 +76,9 @@ importers:
       '@my-workspace/js-global-exports':
         specifier: workspace:*
         version: link:../js-global-exports
+      '@my-workspace/ts-default-export':
+        specifier: workspace:*
+        version: link:../ts-default-export
       '@my-workspace/ts-global-exports':
         specifier: workspace:*
         version: link:../ts-global-exports
@@ -92,6 +101,9 @@ importers:
       '@my-workspace/js-global-exports':
         specifier: workspace:*
         version: link:../js-global-exports
+      '@my-workspace/ts-default-export':
+        specifier: workspace:*
+        version: link:../ts-default-export
       '@my-workspace/ts-global-exports':
         specifier: workspace:*
         version: link:../ts-global-exports
@@ -114,6 +126,9 @@ importers:
       '@my-workspace/js-global-exports':
         specifier: workspace:*
         version: link:../js-global-exports
+      '@my-workspace/ts-default-export':
+        specifier: workspace:*
+        version: link:../ts-default-export
       '@my-workspace/ts-global-exports':
         specifier: workspace:*
         version: link:../ts-global-exports
@@ -136,6 +151,9 @@ importers:
       '@my-workspace/js-global-exports':
         specifier: workspace:*
         version: link:../js-global-exports
+      '@my-workspace/ts-default-export':
+        specifier: workspace:*
+        version: link:../ts-default-export
       '@my-workspace/ts-global-exports':
         specifier: workspace:*
         version: link:../ts-global-exports

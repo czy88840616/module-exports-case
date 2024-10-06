@@ -1,6 +1,7 @@
 import jsExports from '@my-workspace/js-exports';
 import jsGlobalExports from '@my-workspace/js-global-exports';
 import tsGlobalExports from '@my-workspace/ts-global-exports';
+import tsDefaultExport from '@my-workspace/ts-default-export';
 
 describe('case-node16-interop', () => {
   describe('js-exports', () => {
@@ -30,6 +31,16 @@ describe('case-node16-interop', () => {
 
     it('should import and use tsGlobalExportsVariable correctly', () => {
       expect(tsGlobalExports.tsGlobalExportsVariable).toBe('This is a ts-global-exports variable');
+    });
+  });
+
+  describe('ts-default-export', () => {
+    it('should import and use tsDefaultExportFunction correctly', () => {
+      expect(tsDefaultExport.tsDefaultExportFunction()).toBe('I am from ts-default-export');
+    });
+
+    it('should import and use tsDefaultExportVariable correctly', () => {
+      expect(tsDefaultExport.tsDefaultExportVariable).toBe('This is a ts-default-export variable');
     });
   });
 });
