@@ -14,6 +14,7 @@
 - `packages/case-node16-interop`: TypeScript 项目,使用 Node16 模块系统测试导入上述 JavaScript 模块 (使用 esModuleInterop)
 - `packages/case-node-next`: TypeScript 项目,使用 Node Next 模块系统测试导入上述 JavaScript 模块
 - `packages/case-node-next-interop`: TypeScript 项目,使用 Node Next 模块系统测试导入上述 JavaScript 模块 (使用 esModuleInterop)
+- `packages/case-node-next-synthetic`: TypeScript 项目,使用 Node Next 模块系统测试导入上述 JavaScript 模块 (使用 allowSyntheticDefaultImports)
 
 ## 主要测试内容
 
@@ -36,18 +37,20 @@
 
 ## 导出和导入方式总结
 
-| 导出方式 | 导出示例 | 导入方式 (无 esModuleInterop) | 导入方式 (有 esModuleInterop) |
-|---------|---------|----------------------------|----------------------------|
-| CommonJS (`exports.xxx`) | `exports.myFunction = () => {...}` | `import * as myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` |
-| CommonJS (`module.exports`) | `module.exports = { myFunction: () => {...} }` | `import * as myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` |
-| TypeScript `export =` | `export = { myFunction: () => {...} }` | `import * as myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` |
-| ES6 `export default` | `export default { myFunction: () => {...} }` | `import myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` |
-| ES6 命名导出 | `export const myFunction = () => {...}` | `import { myFunction } from 'myModule';` | `import { myFunction } from 'myModule';` |
+| 导出方式 | 导出示例 | 导入方式 (无 esModuleInterop) | 导入方式 (有 esModuleInterop) | 导入方式 (有 allowSyntheticDefaultImports) |
+|---------|---------|----------------------------|----------------------------|------------------------------------------|
+| CommonJS (`exports.xxx`) | `exports.myFunction = () => {...}` | `import * as myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` (只在类型检查时有效) |
+| CommonJS (`module.exports`) | `module.exports = { myFunction: () => {...} }` | `import * as myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` (只在类型检查时有效) |
+| TypeScript `export =` | `export = { myFunction: () => {...} }` | `import * as myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` (只在类型检查时有效) |
+| ES6 `export default` | `export default { myFunction: () => {...} }` | `import myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` | `import myModule from 'myModule'; myModule.myFunction();` |
+| ES6 命名导出 | `export const myFunction = () => {...}` | `import { myFunction } from 'myModule';` | `import { myFunction } from 'myModule';` | `import { myFunction } from 'myModule';` |
 
 注意:
 - 使用 `esModuleInterop` 可以使 CommonJS 和 `export =` 模块的导入方式与 ES6 模块一致。
+- `allowSyntheticDefaultImports` 只影响类型检查,不改变生成的 JavaScript 代码。在运行时,使用此选项导入 CommonJS 模块可能会导致错误。
 - Node16 和 NodeNext 模块系统在导入方式上与 ES6 模块类似,但可能在解析规则上有所不同。
 - 实际项目中,建议统一使用一种模块系统和导入/导出语法,以避免混淆和潜在的兼容性问题。
+- 使用 `allowSyntheticDefaultImports` 时要特别小心,因为它可能会在类型检查和运行时行为之间造成不一致。
 
 ## 如何使用
 

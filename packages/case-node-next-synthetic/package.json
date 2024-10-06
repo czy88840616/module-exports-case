@@ -1,0 +1,21 @@
+{
+  "name": "@my-workspace/case-node-next-synthetic",
+  "version": "1.0.0",
+  "description": "Node Next 模块系统测试用例,包括对所有导出模块的测试,开启 allowSyntheticDefaultImports",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@my-workspace/js-exports": "workspace:*",
+    "@my-workspace/js-global-exports": "workspace:*",
+    "@my-workspace/ts-global-exports": "workspace:*",
+    "@my-workspace/ts-default-export": "workspace:*"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "@types/jest": "^29.5.0"
+  }
+}
