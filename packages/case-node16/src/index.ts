@@ -1,7 +1,7 @@
 import * as jsExports from '@my-workspace/js-exports';
 import * as jsGlobalExports from '@my-workspace/js-global-exports';
 import * as tsGlobalExports from '@my-workspace/ts-global-exports';
-import * as tsDefaultExport from '@my-workspace/ts-default-export';
+import tsDefaultExport from '@my-workspace/ts-default-export';
 
 console.log('Imported from js-exports:', jsExports);
 console.log('Imported from js-global-exports:', jsGlobalExports);

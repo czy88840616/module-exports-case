@@ -5,7 +5,8 @@
     "moduleResolution": "Node16",
     "strict": true,
     "outDir": "./dist",
-    "declaration": true
+    "declaration": true,
+    "esModuleInterop": false
   },
   "include": ["src/**/*"]
 }

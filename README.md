@@ -99,7 +99,7 @@ import
 - 这个项目主要用于学习和测试目的,展示了不同模块系统之间的交互。
 - 在实际项目中,建议尽可能使用一致的模块系统和导入/导出语法。
 - 不同的 TypeScript 版本可能会影响模块解析行为,请确保使用最新版本的 TypeScript。
-- 如果 `module` 设置为 `node16` 或 `nodenext`，则 `esModuleInterop` 默认为 `true`; 否则默认为 `false`。
+- 如果 `module` 设置为 `node16` 或 `nodenext`，则 `esModuleInterop` 默认为 `true`。在我们的 case-node16 和 case-node-next 测试中，我们显式地将其设置为 `false` 以测试没有此功能时的行为。
 - 使用 `allowSyntheticDefaultImports` 时要特别小心,因为它可能会在类型检查和运行时行为之间造成不一致。
 
 ## 贡献
