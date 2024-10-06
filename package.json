@@ -1,0 +1,16 @@
+{
+  "name": "my-pnpm-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "pnpm -r --filter=@my-workspace/case-* run test"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "@types/jest": "^29.5.0"
+  }
+}
